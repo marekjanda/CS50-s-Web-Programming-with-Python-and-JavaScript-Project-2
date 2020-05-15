@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block script%}
+<script src="{{ url_for('static', filename='channels.js') }}"></script>
+{% endblock %}
+
+{% block title %}
+    FLACK: Home
+{% endblock %}
+
+{% block body %}
+<hr>
+<h5 id="display_name"></h5>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>Channels</h3>
+            <ul class="channels">
+                {% for channel in channels %}
+                    <li><a href="{{ url_for('channel', channelName=channel) }}"><button class="btn btn-primary channel">{{ channel }}</button></a></li>
+                {% endfor %}             
+            </ul>
+            <button class="btn btn-primary refresh"><a href="{{ url_for('home') }}" class="refresh">Refresh</a></button>
+        </div>
+        <div class="col">
+            <h3>Create channel</h3>
+            <form id="createChannel">
+                <div class="form-group">
+                    <label for="channelName">Please fill in channel name:</label>
+                    <input type="text" class="form-control" id="channelName" aria-describedby="channelHelp" placeholder="Channel name">
+                    <small id="channelHelp" class="form-text text-muted">Channel name should be descriptive to the intended content of the channel.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+            <div id="errorMessage"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

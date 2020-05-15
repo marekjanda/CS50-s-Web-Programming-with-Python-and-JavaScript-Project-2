@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block script%}
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+{% endblock %}
+
+{% block title %}
+    Flack
+{% endblock %}
+
+{% block body %}
+    <div>
+        <form id="nameSelect">
+            <div class="form-group">
+                <label for="dispName">Please select your display name:</label>
+                <input type="text" class="form-control" id="dispName" aria-describedby="nameHelp" placeholder="Display name">
+                <small id="nameHelp" class="form-text text-muted">Your display name will be displayed with all your posts.</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="errorMessage"></div>
+    </div>
+{% endblock %}

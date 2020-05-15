@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block script%}
+<script src="{{ url_for('static', filename='chat.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script id="res" type="text/x-handlebars-template">
+    {% raw -%}
+        <li class="posted" id="{{postID}}">
+            <div class="name"><b>{{ user }}</b></div>
+            <div class="time"><i>{{ time }}</i></div>
+            <div class="message">{{ message }}</div>
+        </li>
+    {%- endraw %}    
+</script>
+<script id="resOwn" type="text/x-handlebars-template">
+    {% raw -%}
+        <li class="posted" id="{{postID}}">
+            <div class="name"><b>{{ user }}</b></div>            
+            <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="time"><i>{{ time }}</i></div>
+            <div class="message">{{ message }}</div>
+        </li>
+    {%- endraw %}
+</script>
+{% endblock %}
+
+{% block title %}
+    FLACK: {{ channel["name"] }} channel
+{% endblock %}
+
+{% block body %}
+<section>
+    <hr>
+    <h5 id="display_name"></h5>
+    <hr>     
+</section>
+<button class="btn btn-primary home"><a href="{{ url_for('home') }}" class="home">Home</a></button>
+<h3>Channel: {{ channel["name"] }}</h3>
+<div class="container">
+        <div class="row">
+            <div class="col-6 border">
+                <section>
+                    <ul id="posts">
+                        {% for post in channel["posts"] %}
+                            <li class="posted" id="{{ post['postID'] }}">
+                                <div class="name"><b>{{ post["user"] }}</b></div>
+                                <div class="time"><i>{{ post["time"] }}</i></div>
+                                <div class="message">{{ post["message"] }}</div>
+                            </li>            
+                        {% endfor %}
+                    </ul>
+                </section>
+            </div>
+            <div class="col-6">
+                <section>
+                    <form id="userPost">
+                        <div class="form-group">
+                            <label for="post" id="pstinptlabel">Type your post</label>
+                            <textarea class="form-control" id="post" rows="5" data-channel="{{ channel['name'] }}"></textarea>
+                            <small id="postHelp" class="form-text text-muted">Your message will be posted under your display name</small>
+                        </div>
+                        <button class="btn btn-primary" id="postSend">Send</button>                          
+                    </form>
+                    <div id="errorMessage"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

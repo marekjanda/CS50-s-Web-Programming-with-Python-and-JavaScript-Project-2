@@ -1,0 +1,158 @@
+body, html {
+    font-family: Arial, Helvetica, sans-serif, Times, serif;
+}
+
+footer {
+    vertical-align: bottom;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    width: 100%;
+    color: gray;
+    text-align: center;
+}
+
+h1 {
+    background-color: rgba(34, 34, 143, 0.877);
+    color: white;
+    text-align: center;
+    font-size: 5rem;
+}
+
+h5 {
+    text-align: center;
+}
+
+#nameSelect {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+}
+
+#errorMessage {
+    text-align: center;
+    color: tomato;
+}
+
+.refresh {
+    color: white;
+    justify-content: center;
+}
+
+.refresh {
+    color: white;
+    justify-content: center;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.channel {
+    text-align: center;
+    border: 1px solid #007bff;
+    border-radius: 2rem;
+    background-color: #007bff;
+    padding: 0.5rem;
+    margin-right: 5rem;
+    margin-top: 1rem;
+    width: 50%;
+}
+
+a:link, a:active, a:visited {
+    color: white;
+}
+
+#post {
+    justify-content: center;
+    width: 100%;    
+    margin-bottom: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+    border: 1px solid;
+}
+
+#pstinptlabel, #postHelp, #postSend {
+    margin-left: 5%;
+}
+
+.home {
+    float: right;
+    margin-right: 4%;
+}
+
+.row, .container {
+    padding-left: 0.1%;
+    margin-left: 5%;
+    margin-right: 0%;
+}
+
+#posts {
+    width: 100%;
+    height: 25rem;
+    overflow: auto;
+    padding: 0.4rem;
+}
+
+.time {
+    font-size: 0.75rem;
+}
+
+.message {
+    margin-right: 0.2rem;
+    padding: 0.2rem;
+}
+
+.col-6 {
+    margin-left: 0%;
+    margin-right: 0%;
+    padding-right: 0%;
+}
+
+@keyframes close {
+    0% {
+        opacity: 1;
+        line-height: 100%;
+        padding: 0.3em;
+        margin-bottom: 10px;
+    }
+    
+    75% {
+        opacity: 0;
+        line-height: 100%;
+        padding: 0.3em;
+        margin-bottom: 10px;
+    }
+
+    100% {
+        opacity: 0;
+        line-height: 0px;
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+.close {
+    float: right;
+}
+
+.posted {
+    float: left;
+    width: 100%;
+    border: 0.1rem solid rgba(34, 34, 143, 0.877);
+    border-radius: 10px;
+    background-color: rgba(34, 34, 143, 0.877);
+    margin-right: 2%;
+    margin-top: 2%;
+    padding: 0.3em;
+    color: white;
+    animation-name: close;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
